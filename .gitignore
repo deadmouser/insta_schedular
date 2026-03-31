@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -138,3 +137,16 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Project Specific
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite
+*.sqlite3
+uploads/
+apps/api/uploads/
+.turbo/
+.DS_Store
+Thumbs.db
