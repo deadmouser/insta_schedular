@@ -11,6 +11,43 @@ A production-grade, multi-user Instagram scheduling application built as a Turbo
 
 ---
 
+## ⚙️ Environment Configuration
+
+If you fork or clone this repository, you must configure your local environment variables since they are correctly ignored by Git for security.
+
+### Backend (`apps/api/.env`)
+Create a file named `.env` inside the `apps/api/` directory. You can use the provided `.env.example` as a template:
+
+```env
+DATABASE_URL="file:./dev.db"
+REDIS_URL="redis://localhost:6379"
+
+# Security keys (Change these in production!)
+JWT_SECRET="supersecretjwtkeythatislongenough12345"
+ENCRYPTION_KEY="0000000000000000000000000000000000000000000000000000000000000000"
+
+# AI Caption Generation
+ANTHROPIC_API_KEY="sk-..."
+
+# Image & Video Uploads (Cloudinary)
+CLOUDINARY_CLOUD_NAME="..."
+CLOUDINARY_API_KEY="..."
+CLOUDINARY_API_SECRET="..."
+
+# Meta API / Instagram Graph (OAuth)
+META_APP_ID="..."
+META_APP_SECRET="..."
+META_REDIRECT_URI="http://localhost:3001/api/instagram/callback"
+```
+
+### Frontend (`apps/web/.env`)
+Ensure your frontend can reach the backend by creating an `apps/web/.env` file:
+```env
+VITE_API_URL="http://localhost:3001/api"
+```
+
+---
+
 ## 🚀 Getting Started (Local Development)
 
 ### 1. Start Infrastructure
